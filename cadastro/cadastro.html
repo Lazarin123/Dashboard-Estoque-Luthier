@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luthieria Pro | Criar Conta</title>
+    <link rel="stylesheet" href="../login.css">
+</head>
+<body>
+
+    <div class="auth-wrapper">
+        <div class="auth-box">
+            <header class="auth-header">
+                <h1 class="serif">Luthieria<span>.</span></h1>
+                <p class="subtitle">Registo de Novo Membro</p>
+            </header>
+
+            <form id="registerForm" onsubmit="handleRegister(event)">
+                <div class="input-group">
+                    <label for="reg-name">Nome Completo</label>
+                    <input type="text" id="reg-name" placeholder="Ex: Fulano de Tal" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="reg-user">Nome de Usuário</label>
+                    <input type="text" id="reg-user" placeholder="@usuario" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="reg-email">Endereço de E-mail</label>
+                    <input type="email" id="reg-email" placeholder="nome@exemplo.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="reg-pass">Palavra-passe</label>
+                    <input type="password" id="reg-pass" placeholder="••••••••" required>
+                </div>
+
+                <form onsubmit="handleRegister(event)">
+                    <button type="submit" class="btn-auth">CRIAR CONTA</button>
+                </form>
+            </form>
+
+            <footer class="auth-footer">
+                <p>Já possui acesso? <a href="../login.html">Efetuar Login</a></p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

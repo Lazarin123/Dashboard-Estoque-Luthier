@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luthieria Pro | Acesso</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <form id="login-box" class="auth-box active" onsubmit="handleLogin(event)">
+            <h1 class="serif">Luthieria<span>.</span></h1>
+            <p class="subtitle">Bem-vindo de volta.</p>
+            
+            <div class="input-group">
+                <label>Usuário</label>
+                <input type="text" id="l-user" placeholder="Seu usuário" required>
+            </div>
+            <div class="input-group">
+                <label>Senha</label>
+                <input type="password" id="l-pass" placeholder="••••••••" required>
+            </div>
+            
+            <button type="submit" class="btn-auth">ENTRAR NO SISTEMA</button>
+            
+            <p class="toggle-text">Não tem conta? <a href="cadastro/cadastro.html">Cadastre-se</a></p>
+        </form>
+    </div>
+
+    <script src="cadastro/auth.js"></script>
+</body>
+</html>

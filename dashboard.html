@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luthieria Pro | Gestão de Elite</title>
+    <link rel="stylesheet" href="./dashboard/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo serif">Luthieria<span>Manager</span></div>
+            <button class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+            <nav class="nav-links" id="navLinks">
+                <button class="nav-item active" onclick="nav('dashboard')">Dashboard</button>
+                <button class="nav-item" onclick="nav('estoque')">Estoque</button>
+                <button class="nav-item" onclick="nav('financeiro')">Relatório Financeiro</button>
+                <button class="btn-gold-sm" onclick="openModal()">+ NOVO ITEM</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <section class="page active" id="page-dashboard">
+            <div class="section-header">
+                <h1 class="serif">Painel de Controle</h1>
+            </div>
+            <div class="stats-grid" id="dash-stats"></div>
+            <div class="charts-container">
+                <div class="card glass-card">
+                    <h3 class="serif card-label">Top Produtos (Valor de Venda)</h3>
+                    <canvas id="barChart"></canvas>
+                </div>
+                <div class="card glass-card">
+                    <h3 class="serif card-label">Distribuição de Capital</h3>
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="page" id="page-estoque">
+            <div class="section-header">
+                <h1 class="serif">Gestão de Inventário</h1>
+                <input type="text" id="s-search" placeholder="Pesquisar item..." oninput="renderEstoque()">
+            </div>
+            <div class="card table-card">
+                <div class="table-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Quantidade</th>
+                                <th>Preço Venda</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="est-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="page" id="page-financeiro">
+            <div class="section-header">
+                <h1 class="serif">Análise Financeira</h1>
+            </div>
+            <div class="finance-grid">
+                <div class="card glass-card">
+                    <h3 class="serif card-label">Investimento vs. Receita Por Item</h3>
+                    <canvas id="finChart"></canvas>
+                </div>
+                <div class="card glass-card finance-details" id="fin-summary">
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal-overlay" id="overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2 class="serif" id="modal-title">Novo Registro</h2>
+                <button class="close-x" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="m-id">
+                <div class="input-group full">
+                    <label>Nome do Item</label>
+                    <input type="text" id="m-nome" placeholder="Ex: Boquilha Vandoren">
+                </div>
+                <div class="input-row">
+                    <div class="input-group"><label>Estoque Inicial</label><input type="number" id="m-qty"></div>
+                    <div class="input-group"><label>Estoque Mínimo</label><input type="number" id="m-min"></div>
+                </div>
+                <div class="input-row">
+                    <div class="input-group"><label>Custo Unitário (R$)</label><input type="number" id="m-pago" step="0.01"></div>
+                    <div class="input-group"><label>Preço de Venda (R$)</label><input type="number" id="m-venda" step="0.01"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-save" onclick="saveItem()">Salvar Alterações</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./dashboard/script.js"></script>
+</body>
+</html>
