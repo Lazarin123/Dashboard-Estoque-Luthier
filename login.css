@@ -12,6 +12,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
+    margin-top: 50px;
     background: var(--bg);
     color: var(--text);
     font-family: 'DM Sans', sans-serif;
@@ -134,3 +135,55 @@ h1 span { color: var(--accent); }
 }
 
 .auth-footer a:hover { color: var(--text); }
+
+/* --- RESPONSIVO PARA LOGIN / CADASTRO --- */
+
+@media (max-width: 480px) {
+    body {
+        align-items: flex-start; /* Alinha no topo em celulares para evitar que o teclado cubra o input */
+        padding-top: 50px;
+    }
+
+    .auth-wrapper {
+        padding: 15px;
+    }
+
+    .auth-box {
+        padding: 2rem 1.5rem; /* Reduz o recuo interno para ganhar espaço */
+        border: none; /* Opcional: remove borda em telas muito pequenas para visual mais limpo */
+        background: transparent; /* Opcional: mantém o fundo escuro do body */
+        box-shadow: none;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .subtitle {
+        font-size: 10px;
+        letter-spacing: 2px;
+        margin-bottom: 2rem;
+    }
+
+    .btn-auth {
+        padding: 14px;
+        font-size: 11px;
+    }
+
+    .input-group input {
+        padding: 12px; /* Inputs levemente menores para telas pequenas */
+        font-size: 14px; /* Evita o zoom automático do iOS ao focar no input */
+    }
+}
+
+/* Ajuste para telas muito curtas (celulares em modo paisagem) */
+@media (max-height: 600px) {
+    body {
+        align-items: flex-start;
+        overflow-y: auto; 
+    }
+    .auth-wrapper {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}

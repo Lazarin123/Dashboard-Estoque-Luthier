@@ -179,3 +179,68 @@ td { padding: 1rem; border-bottom: 1px solid var(--border); font-size: 13px; }
     .nav-links.active { display: flex; }
     .charts-container, .finance-grid { grid-template-columns: 1fr; }
 }
+
+/* --- ADAPTAÇÕES PARA RESPONSIVIDADE TOTAL --- */
+
+@media (max-width: 1024px) {
+    .charts-container {
+        grid-template-columns: 1fr; /* Empilha os gráficos em tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajuste de Tipografia */
+    h1 { font-size: 2rem; }
+    .stat-card h2 { font-size: 1.5rem; }
+
+    /* Ajuste de Espaçamento */
+    .content-wrapper { margin: 1.5rem auto; }
+    .card { padding: 1.5rem; }
+
+    /* Grid de Estatísticas */
+    .stats-grid {
+        grid-template-columns: 1fr 1fr; /* Duas colunas em celulares médios */
+    }
+
+    /* Tabelas Responsivas */
+    .table-scroll {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    table {
+        min-width: 600px; /* Garante que a tabela não esmague os dados */
+    }
+
+    /* Ajuste do Modal */
+    .modal-box {
+        width: 95%;
+        padding: 1.5rem;
+        max-height: 90vh;
+        overflow-y: auto; /* Permite scroll se o formulário for longo */
+    }
+
+    .input-row {
+        grid-template-columns: 1fr; /* Inputs um embaixo do outro no celular */
+    }
+
+    /* Ajuste da Barra de Busca */
+    #s-search {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr; /* Uma coluna em celulares pequenos */
+    }
+
+    .nav-container {
+        padding: 0 15px;
+    }
+
+    .btn-save {
+        padding: 12px;
+    }
+}
